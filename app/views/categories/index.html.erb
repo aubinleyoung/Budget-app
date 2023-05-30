@@ -2,13 +2,18 @@
 
 <h1>Categories</h1>
 
+<button>
+<a href="<%= url_for('/users/index') %>" class="btn"><</a>
+
+</button>
 <div id="categories">
   <% @categories.each do |category| %>
     <%= render category %>
     <p>
-      <%= link_to "Show this category", category %>
+      
     </p>
   <% end %>
 </div>
+
 
 <%= link_to "New category", new_category_path %>

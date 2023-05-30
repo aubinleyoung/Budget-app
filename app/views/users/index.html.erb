@@ -1,14 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New user", new_user_path %>
+<section class="home">
+    <h1>My Badget</h1>
+    <div class="home_content">
+        <p>My Budget helps you manage your money more effectively through easy recording of your income and expenses. </p>
+        <%= link_to "Start", categories_path %>
+    </div>
+   <button>
+    <%= link_to 'Sign out',  destroy_user_session_path, method: :delete %>
+  </button>
+</section>

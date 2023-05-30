@@ -71,5 +71,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+gem 'devise'
 gem 'pg'
 gem 'rubocop', '>= 1.0', '< 2.0'
