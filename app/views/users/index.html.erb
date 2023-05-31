@@ -1,8 +1,10 @@
 <section class="home">
     <h1>My Badget</h1>
     <div class="home_content">
-        <p>My Budget helps you manage your money more effectively through easy recording of your income and expenses. </p>
-        <%= link_to "Start", categories_path %>
+        <p>Smart Budget helps you manage your money more effectively through easy recording of your income and expenses. </p>
+       <button>
+       <%= link_to "Get Start", categories_path %>
+       </button>
     </div>
    <button>
     <%= link_to 'Sign out',  destroy_user_session_path, method: :delete %>

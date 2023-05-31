@@ -12,6 +12,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    @category = Category.where(author_id: current_user.id)
   end
 
   # GET /transactions/1/edit
@@ -19,44 +20,40 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
+    transaction = Transaction.new(transaction_params)
 
-    respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to transaction_url(@transaction), notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @transaction }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
-      end
+    if transaction.save
+      redirect_to category_url(transaction.category), notice: 'Transaction was successfully created.'
+
+    else
+      redirect_to category_url(transaction.category), notice: 'Failed to create new transaction!'
     end
   end
 
   # PATCH/PUT /transactions/1 or /transactions/1.json
   def update
-    respond_to do |format|
-      if @transaction.update(transaction_params)
-        format.html { redirect_to transaction_url(@transaction), notice: 'Transaction was successfully updated.' }
-        format.json { render :show, status: :ok, location: @transaction }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
-      end
-    end
+
   end
 
   # DELETE /transactions/1 or /transactions/1.json
   def destroy
-    @transaction.destroy
+    transaction = Transaction.find(params[:id])
 
-    respond_to do |format|
-      format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
-      format.json { head :no_content }
+    if transaction.destroy!
+      redirect_to categories_url, notice: 'Transaction was successfully deleted.'
+    else
+      redirect_to categories_url, notice: 'Faile to delete transaction.'
     end
   end
 
   private
-
+  def set_category
+    @category = Category.find(params[:id])
+  end
+  
+  def set_user
+    @user = current_user
+  end
   # Use callbacks to share common setup or constraints between actions.
   def set_transaction
     @transaction = Transaction.find(params[:id])
@@ -64,6 +61,8 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.fetch(:transaction, {})
+    transaction = params.require(:transaction).permit(:name, :amount, :category_id)
+    transaction[:user_id] = current_user.id
+    transaction
   end
 end

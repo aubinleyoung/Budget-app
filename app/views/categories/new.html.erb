@@ -1,9 +1,15 @@
-<h1>New category</h1>
 
-<%= render "form", category: @category %>
+<section >
 
-<br>
+  <h1>New Category</h1>
 
-<div>
+  <div>
+    <%= render "form", category: @category %>
+  </div>
+
+  <button>
   <%= link_to "Back to categories", categories_path %>
-</div>
+  </button>
+
+</section>
+

@@ -1,10 +1,11 @@
+<section>
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Categories</h1>
 
 <button>
-<a href="<%= url_for('/users/index') %>" class="btn"><</a>
-
+<a href="<%= url_for('/users/index') %>" class="btn">Back</a>
 </button>
 <div id="categories">
   <% @categories.each do |category| %>
@@ -15,5 +16,8 @@
   <% end %>
 </div>
 
-
+<button>
 <%= link_to "New category", new_category_path %>
+</button>
+
+</section>

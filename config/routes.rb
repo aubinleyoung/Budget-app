@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   root 'pages#splash'
   resources :users, only: %i[index show]
-  resources :categories, only: %i[index show new create destroy]
-  resources :budgets, only: %i[index show new create destroy]
+  resources :categories, only: %i[index show new create destroy] do
+  resources :transactions, only: %i[new create destroy]
+  end
+  
   end
     
