@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Budget App - Splash</title>
+  <title>Home</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-<body> 
+<body > 
 
-<div class='splash-container'>
-  <h1 class="app-name">SmartBudget</h1>  
-  <p class='log-btns'>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn" %>
-    <%= link_to "Log in", new_user_session_path, class: "btn" %>    
+<section class="splash-body  grey lighten-5 z-depth-5">
+
+<div class="container">
+
+  <h1 class="center-align">SmartBudget</h1>  
+  <p class="center-align valign-rwaper">
+
+    <%= link_to "Sign up", new_user_registration_path, class: "btn  blue darken-4" %>
+    <%= link_to "Log in", new_user_session_path, class: "btn  blue darken-4" %>   
+
   </p>
-</div>  
+  </div>
+</section>  
+
 </body>
 </html>

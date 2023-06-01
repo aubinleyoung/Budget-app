@@ -1,24 +1,18 @@
-<section >
-<p style="color: green"><%= notice %></p>
+<section class="container">
 
+<p style="color: green"><%= notice %></p>
+<%= link_to "Back", categories_path, class: "btn light-blue darken-4 text-ligth" %>
 <%= render @category %>
 
-<button>
-<%= link_to "Back to categories", categories_path %>
-</buttton>
-
-<button>
-<%= link_to "Add Transaction", new_category_transaction_path(@category) %>
-</button>
+<%= button_to "Delete", @category, method: :delete, class: "btn light-blue darken-4 text-ligth" %>
+<br>
+<%= link_to "Add Transaction", new_category_transaction_path(@category),  class: "btn light-blue darken-4 text-ligth" %>
 
     <div>
-
-        <img src="<%= @category.icon %>" alt='Category icon' />
-
         <div>
-          <h2><%= @category.name %></h2>
+          
           <h4> Total Amount: <%=@category.transactions.sum(:amount) %> $</h4>
-          <%= button_to "Delete", @category, method: :delete %>
+         
         </div>
 
     </div>
@@ -27,11 +21,24 @@
       <div>
         <% @transactions.each do |transaction| %>
         <div> 
-            <%= render transaction %>
+        
           </div>
+          <table class="striped">
+          <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+          <%= render transaction %>
+          </tbody>
+          </table>
         <% end %>
       </div>
     <% else %> 
     <% end %>
 
 </section>
+

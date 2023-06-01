@@ -10,21 +10,24 @@
       </ul>
     </div>
   <% end %>
-  <div>
-  <%= form.label :category_id %><br />
-  <%= form.collection_select :category_id, current_user.categories, :id, :name, prompt: true, required: true %>
-</div>
 
-<div>
+
+<div class="form">
+<div class="input-field ">
+<%= form.label :category_id %><br />
+<%= form.collection_select :category_id, current_user.categories, :id, :name, prompt: true, required: true, class: "input-field" %>
+</div>
+<div class="input-container ">
   <%= form.label :name %><br />
   <%= form.text_field :name, required: true %>
 </div>
 
-<div>
+<div class="input-container ">
   <%= form.label :amount %><br />
   <%= form.number_field :amount, required: true %>
 </div>        
   <div>
-    <%= form.submit %>
+    <%= form.submit :save,  class: "btn light-blue darken-4 text-ligth" %>
   </div>
+</div>
 <% end %>

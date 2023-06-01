@@ -1,6 +1,9 @@
+<section class="container">
+<br>
+<%= link_to "Back", categories_path, class: "btn light-blue darken-4 text-ligth" %>
 
-<section class="new_trans">
-    <h1>New transaction</h1>
+    <h3 class="center-align">New transaction</h3>
     <%= render "form", transaction: @transaction %>
-    <%= link_to "Back to transactions", categories_path %>
+
+
 </section>

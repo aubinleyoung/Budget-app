@@ -31,9 +31,7 @@ class TransactionsController < ApplicationController
   end
 
   # PATCH/PUT /transactions/1 or /transactions/1.json
-  def update
-
-  end
+  def update; end
 
   # DELETE /transactions/1 or /transactions/1.json
   def destroy
@@ -47,13 +45,15 @@ class TransactionsController < ApplicationController
   end
 
   private
+
   def set_category
     @category = Category.find(params[:id])
   end
-  
+
   def set_user
     @user = current_user
   end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_transaction
     @transaction = Transaction.find(params[:id])
