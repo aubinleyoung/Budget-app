@@ -1,7 +1,7 @@
         databases:
   - name: BudgetApp
-    databaseName: budget_q473
-    user: budget_q473_user
+    databaseName: budgetapp
+    user: budgetapp_user
     plan: free
 services:
   - type: web
