@@ -8,7 +8,7 @@ RSpec.describe 'pages/splash.html.erb', type: :view do
 
   it 'displays the correct header' do
     render
-    expect(rendered).to have_selector('h1', text: 'SmartBudget')
+    expect(rendered).to have_selector('h3', text: 'SMART BUDGET')
   end
 
   it 'displays the correct sign up button' do

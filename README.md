@@ -50,7 +50,7 @@ A mobile web application where users can manage their budget: they have a list o
 
 ## [Go live]()
 
-## [Video presentation]()
+## [Video presentation](https://www.loom.com/share/b6dd8f60f9e44dbdacca9220c485e714)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
