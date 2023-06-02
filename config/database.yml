@@ -15,4 +15,4 @@ test:
 
 production:
   <<: *default
-  database: budge_app_production
+  url: <%= ENV['DATABASE_URL'] %>
