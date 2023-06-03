@@ -1,0 +1,46 @@
+<section class="container">
+
+<p style="color: green"><%= notice %></p>
+<%= link_to "Back", categories_path, class: "btn light-blue darken-4 text-ligth" %>
+<br>
+<br>
+<%= render @category %>
+<br>
+<%= button_to "Delete", @category, method: :delete, class: "btn light-blue darken-4 text-ligth" %>
+<br>
+<%= link_to "Add Transaction", new_category_transaction_path(@category),  class: "btn light-blue darken-4 text-ligth" %>
+
+    <div>
+        <div>
+          
+          <h4> Total Amount: <%=@category.transactions.sum(:amount) %> $</h4>
+         
+        </div>
+
+    </div>
+
+    <% if @transactions.exists? %>
+      <div>
+        <% @transactions.each do |transaction| %>
+        <div> 
+        
+          </div>
+          <table class="striped">
+          <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+          <%= render transaction %>
+          </tbody>
+          </table>
+        <% end %>
+      </div>
+    <% else %> 
+    <% end %>
+
+</section>
+

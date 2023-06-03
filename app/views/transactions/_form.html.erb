@@ -1,0 +1,38 @@
+<%= form_with(model: transaction, url: category_transactions_path(@category)) do |form| %>
+
+
+<div class="form">
+
+<% if flash[:notice] %>
+<div  style="color: green">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+<% if flash[:alert] %>
+<div  style="color: red">
+  <%= flash[:alert] %>
+</div>
+<% end %>
+<div class="input-container input-field ">
+
+<%= form.label :category_id %><br />
+<%= form.collection_select :category_id, current_user.categories, :id, :name, prompt: true, required: true, class: "input-field" %>
+
+</div>
+<div class="input-container ">
+  <%= form.label :name %><br />
+  <%= form.text_field :name, required: true %>
+</div>
+
+<div class="input-container ">
+  <%= form.label :amount %><br />
+  <%= form.number_field :amount, required: true %>
+</div>        
+  <div>
+    <%= form.submit :save,  class: "btn light-blue darken-4 text-ligth" %>
+  </div>
+</div>
+<% end %>
+
+

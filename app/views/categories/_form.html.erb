@@ -1,0 +1,16 @@
+<%= form_with(model: category) do |form| %>
+  <div>
+    <%= form.label :name %><br />
+    <%= form.text_field :name, required: true%>
+  </div>
+
+  <div>
+    <%= form.label :icon%><br />
+    <%= form.text_field :icon, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit :Save , class: "btn light-blue darken-4 text-ligth" %>
+
+  </div>
+<% end %>
