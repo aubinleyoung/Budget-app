@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'pages/splash.html.erb', type: :view do
   it 'displays the correct page title' do
     render
-    expect(rendered).to have_title('Home')
+    expect(rendered).to have_title('Splash')
   end
 
   it 'displays the correct header' do
