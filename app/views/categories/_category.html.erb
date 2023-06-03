@@ -1,16 +1,21 @@
 <%= link_to category do %>
   <div id="<%= dom_id category %>" class = "category_body">
   
-    <div>
-    <div  class='row grey lighten-5 z-depth-5'>
-    
-    <div class="col s5" style="height:10vh; width:10vh; overflow: hidden;">
+    <div  class='gray lighten-5 z-depth-5'  style="display:flex; align-items:center ; gap:5px; padding:0px 10px 0px 10px">
+  
+    <div style="height:10vh; width:10vh; overflow: hidden">
     <img src="<%= category.icon %>" alt='Category icon' />
     </div>
+    <div class="">
 
-      <h5  class="flow-tex"><%= category.name %></h5>
-      <p class="col s5"><%= category.created_at.strftime("%d-%b-%Y")%></p>
-      <h3  class=" flow-text"><%= category.transactions.sum(:amount) %>$</h3>
+    <div style="display:flex; align-items:center ; gap:20vw">
+      <h5 ><%= category.name %></h5>
+      <h5 "><%= category.transactions.sum(:amount) %>$</h5>
+    </div>
+
+    <div>
+      <p><%= category.created_at.strftime("%d-%b-%Y")%></p>
+    </div>
  
     </div>
  
