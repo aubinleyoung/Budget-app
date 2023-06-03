@@ -1,6 +1,7 @@
-  default: &default
+default: &default
   adapter: postgresql
-  encoding: unicode
+  username: <%= ENV.fetch("POSTGRES_USER")%>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD")%>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
@@ -14,7 +15,7 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: budget_app_production
   
 
-
+  
