@@ -48,7 +48,7 @@ A mobile web application where users can manage their budget: they have a list o
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-## [Go live]()
+## [Go live](https://smart-budget-x8t8.onrender.com)
 
 ## [Video presentation](https://www.loom.com/share/b6dd8f60f9e44dbdacca9220c485e714)
 
