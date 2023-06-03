@@ -3,7 +3,11 @@
   
     <div>
     <div  class='row grey lighten-5 z-depth-5'>
-    <img src="<%= category.icon %>" alt='Category icon' class="col s5 " />
+    
+    <div class="col s5" style="height:10vh; width:10vh; overflow: hidden;">
+    <img src="<%= category.icon %>" alt='Category icon' />
+    </div>
+
       <h5  class="flow-tex"><%= category.name %></h5>
       <p class="col s5"><%= category.created_at.strftime("%d-%b-%Y")%></p>
       <h3  class=" flow-text"><%= category.transactions.sum(:amount) %>$</h3>

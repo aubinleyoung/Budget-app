@@ -1,21 +1,24 @@
 <%= form_with(model: transaction, url: category_transactions_path(@category)) do |form| %>
-  <% if transaction.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
-
-      <ul>
-        <% transaction.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 
 <div class="form">
-<div class="input-field ">
+
+<% if flash[:notice] %>
+<div  style="color: green">
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+<% if flash[:alert] %>
+<div  style="color: red">
+  <%= flash[:alert] %>
+</div>
+<% end %>
+<div class="input-container input-field ">
+
 <%= form.label :category_id %><br />
 <%= form.collection_select :category_id, current_user.categories, :id, :name, prompt: true, required: true, class: "input-field" %>
+
 </div>
 <div class="input-container ">
   <%= form.label :name %><br />
@@ -31,3 +34,5 @@
   </div>
 </div>
 <% end %>
+
+

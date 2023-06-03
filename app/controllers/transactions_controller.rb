@@ -26,7 +26,8 @@ class TransactionsController < ApplicationController
       redirect_to category_url(transaction.category), notice: 'Transaction was successfully created.'
 
     else
-      redirect_to category_url(transaction.category), notice: 'Failed to create new transaction!'
+      flash[:alert] = 'Pease select your category.'
+      redirect_to new_category_transaction_url
     end
   end
 
